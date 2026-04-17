@@ -3,6 +3,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Hello from CI/CD Pipeline!"
+   return "Hello from CI/CD Pipeline UPDATED!"
 
 app.run(host="0.0.0.0", port=80)
