@@ -19,17 +19,19 @@ stage('Clone Source') {
   }
 
   stage('Login to Docker Hub') {
-   steps {
-    withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKER_TOKEN')]) {
-     sh 'echo $DOCKER_TOKEN | docker login -u your-dockerhub-username --password-stdin'
-    }
-   }
+ steps {
+  withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKER_TOKEN')]) {
+   sh '''
+   echo $DOCKER_TOKEN | docker login -u pratikkaushal --password-stdin
+   '''
   }
+ }
+}
 
   stage('Push to Docker Hub') {
-   steps {
-    sh 'docker push $IMAGE_NAME:latest'
-   }
-  }
+ steps {
+  sh 'docker push pratikkaushal/myapp:latest'
+ }
+}
  }
 }
