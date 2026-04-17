@@ -2,13 +2,13 @@ pipeline {
  agent any
 
  environment {
-  IMAGE_NAME = "your-dockerhub-username/myapp"
+  IMAGE_NAME = "pratikkaushal/myapp"
  }
 
  stages {
   stage('Clone Source') {
    steps {
-    git 'https://github.com/your-username/my-app.git'
+    git 'https://github.com/pratikkaushal19/my-app.git'
    }
   }
 
