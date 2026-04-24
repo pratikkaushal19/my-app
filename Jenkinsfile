@@ -5,12 +5,7 @@ pipeline {
         IMAGE_NAME = "pratikkaushal19/myapp"
     }
 
-    stages {
-        stage('Clone Source') {
-    steps {
-        git branch: 'main', url: 'https://github.com/pratikkaushal19/my-app.git'
-    }
-}
+   
 
         stage('Build Docker Image') {
             steps {
