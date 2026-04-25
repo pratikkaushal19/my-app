@@ -5,7 +5,7 @@ pipeline {
         IMAGE_NAME = "pratikkaushal19/myapp"
     }
 
-   
+    stages {
 
         stage('Build Docker Image') {
             steps {
@@ -26,5 +26,6 @@ pipeline {
                 sh 'docker push $IMAGE_NAME:latest'
             }
         }
+
     }
 }
