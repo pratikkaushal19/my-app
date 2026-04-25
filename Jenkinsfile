@@ -15,9 +15,9 @@ pipeline {
 
         stage('Login to Docker Hub') {
             steps {
-                withCredentials([string(credentialsId: 'docker-token', variable: 'DOCKER_TOKEN')]) {
+                withCredentials([string(credentialsId: 'docker-token-global', variable: 'DOCKER_TOKEN')]) {
                     sh '''
-                    docker login -u pratikkaushal -p $DOCKER_TOKEN
+                    echo $DOCKER_TOKEN | docker login -u pratikkaushal --password-stdin
                     '''
                 }
             }
@@ -28,6 +28,5 @@ pipeline {
                 sh 'docker push $IMAGE_NAME:latest'
             }
         }
-
     }
 }
