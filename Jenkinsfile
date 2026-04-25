@@ -15,7 +15,7 @@ pipeline {
 
         stage('Login to Docker Hub') {
             steps {
-                withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKER_TOKEN')]) {
+                withCredentials([string(credentialsId: 'docker-token', variable: 'DOCKER_TOKEN')]) {
                     sh '''
                     docker login -u pratikkaushal -p $DOCKER_TOKEN
                     '''
